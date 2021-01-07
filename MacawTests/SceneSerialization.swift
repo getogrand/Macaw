@@ -56,7 +56,7 @@ class NodeSerializer {
         }
         factories["Text"] = { dictionary in
             let textString = dictionary["text"] as! String
-            let text = Text(text: textString)
+            let text = MText(text: textString)
             
             if let fontDict = dictionary["font"] as? [String:Any] {
                 text.font = Font(dictionary: fontDict)
@@ -157,7 +157,7 @@ extension Shape: Serializable {
     }
 }
 
-extension Text: Serializable {
+extension MText: Serializable {
     
     func toDictionary() -> [String:Any] {
         var result = super.baseToDictionary()

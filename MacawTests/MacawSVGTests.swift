@@ -100,7 +100,7 @@ class MacawSVGTests: XCTestCase {
     }
     
     func testTextBasicTransform() {
-        let text1 = Text(text: "Point")
+        let text1 = MText(text: "Point")
         text1.place = Transform(m11: cos(.pi/4.0), m12: -sin(.pi/4.0), m21: sin(.pi/4.0), m22: cos(.pi/4.0), dx: 0, dy: 0)
         let group1 = Group(contents: [text1])
         group1.place = Transform(dx: 100, dy: 100)

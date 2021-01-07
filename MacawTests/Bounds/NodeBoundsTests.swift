@@ -161,7 +161,7 @@ class NodeBoundsTests: XCTestCase {
         let texts = ["", "Hello, World", "Hello,\nWorld", "\nHello\n,\nWorld"]
         
         texts.forEach { text in
-            let text = Text(text: text)
+            let text = MText(text: text)
             
             let stringAttributes = [NSAttributedString.Key.font: MFont.systemFont(ofSize: MFont.systemFontSize)]
             let size = text.text.size(withAttributes: stringAttributes)
@@ -178,7 +178,7 @@ class NodeBoundsTests: XCTestCase {
         
         texts.forEach { (text) in
             kernings.forEach({ (kerning) in
-                let text = Text(text: text, kerning: kerning)
+                let text = MText(text: text, kerning: kerning)
                 
                 let stringAttributes = [NSAttributedString.Key.font: MFont.systemFont(ofSize: MFont.systemFontSize),
                                         NSAttributedString.Key.kern: NSNumber(value: kerning)]

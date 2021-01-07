@@ -4,7 +4,7 @@ import UIKit
 import AppKit
 #endif
 
-open class Text: Node {
+open class MText: Node {
 
     public let textVar: Variable<String>
     open var text: String {

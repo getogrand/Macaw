@@ -1089,12 +1089,12 @@ open class SVGParser {
                                      fontName: String?,
                                      fontSize: Int?,
                                      fontWeight: String?,
-                                     pos: Transform = Transform()) -> Text? {
+                                     pos: Transform = Transform()) -> MText? {
         let string = text.text
         let position = pos.move(dx: getDoubleValue(text, attribute: "x") ?? 0,
                                 dy: getDoubleValue(text, attribute: "y") ?? 0)
 
-        return Text(text: string,
+        return MText(text: string,
                     font: getFont(fontName: fontName, fontWeight: fontWeight, fontSize: fontSize),
                     fill: fill,
                     stroke: stroke,
@@ -1125,7 +1125,7 @@ open class SVGParser {
         var preserveWhitespace = false
 
         for element in contents {
-            let text: Text?
+            let text: MText?
             if let textElement = element as? TextElement {
                 // parse as regular text element
                 let textString = textElement.text
@@ -1148,7 +1148,7 @@ open class SVGParser {
 
                 let place = Transform().move(dx: bounds.x + bounds.w, dy: bounds.y)
 
-                text = Text(text: trimmedString,
+                text = MText(text: trimmedString,
                             font: getFont(fontName: fontName, fontWeight: fontWeight, fontSize: fontSize),
                             fill: fill,
                             stroke: stroke,
@@ -1197,7 +1197,7 @@ open class SVGParser {
                                 fontSize: Int?,
                                 fontWeight: String?,
                                 bounds: Rect,
-                                previousCollectedTspan: Node?) -> Text? {
+                                previousCollectedTspan: Node?) -> MText? {
 
         let string = element.text
         var shouldAddWhitespace = withWhitespace
@@ -1221,7 +1221,7 @@ open class SVGParser {
             return fill
         }
 
-        return Text(text: text,
+        return MText(text: text,
                     font: getFont(attributes, fontName: fontName, fontWeight: fontWeight, fontSize: fontSize),
                     fill: fillColor,
                     stroke: stroke ?? getStroke(attributes),
@@ -1856,8 +1856,8 @@ open class SVGParser {
                          visible: visible,
                          tag: tag)
         }
-        if let text = referenceNode as? Text {
-            return Text(text: text.text,
+        if let text = referenceNode as? MText {
+            return MText(text: text.text,
                         font: text.font,
                         fill: text.fill,
                         stroke: text.stroke,

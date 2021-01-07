@@ -7,13 +7,13 @@ import AppKit
 #endif
 
 class TextRenderer: NodeRenderer {
-    var text: Text
+    var text: MText
 
     override var node: Node {
         return text
     }
 
-    init(text: Text, view: DrawingView?, parentRenderer: GroupRenderer? = nil) {
+    init(text: MText, view: DrawingView?, parentRenderer: GroupRenderer? = nil) {
         self.text = text
         super.init(node: text, view: view, parentRenderer: parentRenderer)
     }
@@ -137,7 +137,7 @@ class TextRenderer: NodeRenderer {
                       width: CGFloat(textSize.width), height: CGFloat(textSize.height))
     }
 
-    fileprivate func calculateBaselineOffset(_ text: Text, font: MFont) -> CGFloat {
+    fileprivate func calculateBaselineOffset(_ text: MText, font: MFont) -> CGFloat {
         var baselineOffset = CGFloat(0)
         switch text.baseline {
         case Baseline.alphabetic:
@@ -152,7 +152,7 @@ class TextRenderer: NodeRenderer {
         return -baselineOffset
     }
 
-    fileprivate func calculateAlignmentOffset(_ text: Text, font: MFont) -> CGFloat {
+    fileprivate func calculateAlignmentOffset(_ text: MText, font: MFont) -> CGFloat {
         let textAttributes = [
             NSAttributedString.Key.font: font
         ]
