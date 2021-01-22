@@ -147,12 +147,12 @@ class NodeBoundsTests: XCTestCase {
         testShapePoly(points: points, targetRect: targetRect)
     }
     
-    // MARK: - Image
+    // MARK: - MacawImage
     
     func testSimpleImageZeroBounds() {
-        let image = Image(src: "")
+        let image = MacawImage(src: "")
         
-        XCTAssertNil(image.bounds, "Image bounds not nil")
+        XCTAssertNil(image.bounds, "MacawImage bounds not nil")
     }
 
     // MARK: - Text

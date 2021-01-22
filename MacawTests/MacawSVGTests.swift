@@ -144,7 +144,7 @@ class MacawSVGTests: XCTestCase {
                 let imageSize = mImage.size
                 let imageReferenceContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\"  ><image    xlink:href=\"data:image/png;base64,\(String(base64Content))\" width=\"\(imageSize.width)\" height=\"\(imageSize.height)\" /></svg>"
                 
-                let node = Image(image: mImage)
+                let node = MacawImage(image: mImage)
                 let imageSerialization = SVGSerializer.serialize(node: node)
                 XCTAssertEqual(imageSerialization, imageReferenceContent)
             }

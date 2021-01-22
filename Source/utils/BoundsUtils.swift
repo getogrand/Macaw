@@ -15,7 +15,7 @@ import AppKit
 #endif
 
 final internal class BoundsUtils {
-    class func getRect(of image: Image?, mImage: MImage) -> CGRect? {
+    class func getRect(of image: MacawImage?, mImage: MImage) -> CGRect? {
         guard let image = image else {
             return .none
         }

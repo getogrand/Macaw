@@ -1018,13 +1018,13 @@ open class SVGParser {
     fileprivate func parseImage(_ image: XMLIndexer,
                                 opacity: Double,
                                 pos: Transform = Transform(),
-                                clip: Locus?) -> Image? {
+                                clip: Locus?) -> MacawImage? {
         guard let element = image.element, let link = element.allAttributes["xlink:href"]?.text else {
             return .none
         }
         let position = pos.move(dx: getDoubleValue(element, attribute: "x") ?? 0,
                                 dy: getDoubleValue(element, attribute: "y") ?? 0)
-        return Image(src: link,
+        return MacawImage(src: link,
                      w: getIntValue(element, attribute: "width") ?? 0,
                      h: getIntValue(element, attribute: "height") ?? 0,
                      place: position,
@@ -1869,8 +1869,8 @@ open class SVGParser {
                         visible: visible,
                         tag: tag)
         }
-        if let image = referenceNode as? Image {
-            return Image(src: image.src,
+        if let image = referenceNode as? MacawImage {
+            return MacawImage(src: image.src,
                          xAlign: image.xAlign,
                          yAlign: image.yAlign,
                          aspectRatio: image.aspectRatio,

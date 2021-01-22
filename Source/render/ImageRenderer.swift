@@ -9,7 +9,7 @@ import UIKit
 #endif
 
 class ImageRenderer: NodeRenderer {
-    var image: Image
+    var image: MacawImage
 
     var renderedPaths: [CGPath] = [CGPath]()
 
@@ -17,7 +17,7 @@ class ImageRenderer: NodeRenderer {
         return image
     }
 
-    init(image: Image, view: DrawingView?, parentRenderer: GroupRenderer? = nil) {
+    init(image: MacawImage, view: DrawingView?, parentRenderer: GroupRenderer? = nil) {
         self.image = image
         super.init(node: image, view: view, parentRenderer: parentRenderer)
     }

@@ -23,7 +23,7 @@ class ImageBoundsTests: XCTestCase {
             return
         }
         
-        let image = Image(src: path)
+        let image = MacawImage(src: path)
         guard let bounds = image.bounds else {
             XCTFail("Bounds not available")
             return
@@ -49,7 +49,7 @@ class ImageBoundsTests: XCTestCase {
             return
         }
         
-        let image = Image(src: base64Content)
+        let image = MacawImage(src: base64Content)
         guard let bounds = image.bounds else {
             XCTFail("Bounds not available")
             return
@@ -78,7 +78,7 @@ class ImageBoundsTests: XCTestCase {
         }
         #endif
         
-        let image = Image(image: mImage)
+        let image = MacawImage(image: mImage)
         guard let bounds = image.bounds else {
             XCTFail("Bounds not available")
             return

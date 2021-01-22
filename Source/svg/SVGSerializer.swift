@@ -127,13 +127,13 @@ open class SVGSerializer {
         return tag(SVGRectOpenTag, ["x": rect.x.serialize(), "y": rect.y.serialize(), "width": rect.w.serialize(), "height": rect.h.serialize()])
     }
 
-    fileprivate func imageToSVG(_ image: Image) -> String {
+    fileprivate func imageToSVG(_ image: MacawImage) -> String {
         var result = tag(SVGImageOpenTag, close: false)
         result += idToSVG(image.tag)
         result += clipToSVG(image.clip)
         result += transformToSVG(image.place)
         if image.src.contains("memory://") {
-            if let data = image.base64encoded(type: Image.ImageRepresentationType.PNG) {
+            if let data = image.base64encoded(type: MacawImage.ImageRepresentationType.PNG) {
                 result += " xlink:href=\"data:image/png;base64,\(data)\""
             }
         } else {
@@ -370,7 +370,7 @@ open class SVGSerializer {
             result += SVGGroupCloseTag
             return result
         }
-        if let image = node as? Image {
+        if let image = node as? MacawImage {
             return imageToSVG(image)
         }
         if let text = node as? MText {

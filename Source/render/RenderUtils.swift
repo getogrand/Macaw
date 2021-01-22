@@ -23,7 +23,7 @@ class RenderUtils {
             return ShapeRenderer(shape: shape, view: view, parentRenderer: parentRenderer)
         } else if let text = node as? MText {
             return TextRenderer(text: text, view: view, parentRenderer: parentRenderer)
-        } else if let image = node as? Image {
+        } else if let image = node as? MacawImage {
             return ImageRenderer(image: image, view: view, parentRenderer: parentRenderer)
         }
         fatalError("Unsupported node: \(node)")

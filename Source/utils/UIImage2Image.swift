@@ -15,7 +15,7 @@ import UIKit
 var imagesMap = [String: MImage]()
 
 public extension MImage {
-    func image( xAlign: Align = .min, yAlign: Align = .min, aspectRatio: AspectRatio = .none, w: Int = 0, h: Int = 0, place: Transform = Transform.identity, opaque: Bool = true, opacity: Double = 1, clip: Locus? = nil, effect: Effect? = nil, visible: Bool = true, tag: [String] = []) -> Image {
+    func image( xAlign: Align = .min, yAlign: Align = .min, aspectRatio: AspectRatio = .none, w: Int = 0, h: Int = 0, place: Transform = Transform.identity, opaque: Bool = true, opacity: Double = 1, clip: Locus? = nil, effect: Effect? = nil, visible: Bool = true, tag: [String] = []) -> MacawImage {
 
         var oldId: String?
         for key in imagesMap.keys where self === imagesMap[key] {
@@ -25,7 +25,7 @@ public extension MImage {
         let id = oldId ?? UUID().uuidString
         imagesMap[id] = self
 
-        return Image(src: "memory://\(id)",
+        return MacawImage(src: "memory://\(id)",
                      xAlign: xAlign, yAlign: yAlign,
                      aspectRatio: aspectRatio,
                      w: w, h: h,
